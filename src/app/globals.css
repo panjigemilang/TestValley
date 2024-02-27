@@ -8,26 +8,129 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+swiper-container {
+  width: 100%;
+  height: 195px;
+  text-align: center;
+}
+
+swiper-slide {
+  background-color: rgb(4 47 46);
+  color: #fff;
+  font-size: 25px;
+}
+
+input {
+  background: none;
+  padding: 9px 12px;
+  color: rgb(51, 51, 51);
+  border-radius: 4px;
+  border: 1px solid rgb(221, 221, 221);
+  width: 100%;
+  letter-spacing: -0.5px;
+  font-size: 14px;
+  line-height: 1.57;
+  appearance: none;
+}
+
+input:focus {
+  border: 1px solid rgb(0, 208, 148);
+}
+
+[type="search"] {
+  outline-offset: -2px;
+}
+
+@media (min-width: 1024px) {
+  swiper-container {
+    box-sizing: content-box;
+    height: 324px;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .carousel-nav-prev,
+  .carousel-nav-next {
+    background-color: rgba(51, 51, 51, 0.5);
+    cursor: pointer;
+    display: flex;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  .carousel-nav-prev {
+    left: 16px;
+  }
+
+  .carousel-nav-next {
+    right: 16px;
+  }
+
+  .product .swiper-button-prev,
+  .product .swiper-button-next {
+    position: absolute !important;
+    top: 100%;
+    height: 16px;
+    width: 8px;
+  }
+
+  .product .swiper-button-prev {
+    left: 0px;
+    right: auto;
+  }
+
+  .product .swiper-button-next {
+    left: 41px;
+  }
+
+  .product .swiper-button-prev::after,
+  .product .swiper-button-next::after {
+    cursor: pointer;
+    color: rgb(153, 153, 153);
+    font-size: 16px;
+    height: 16px;
+    width: 8px;
   }
 }
